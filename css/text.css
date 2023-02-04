@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+body{
+  overflow-x: hidden;
+  background-color: rgb(246, 253, 255);
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #257d61;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+.clg-logo{
+  margin-left: 10px;
+  margin-right: 40px;
+  height:inherit;
+}
+
+#header-bar{
+  height:40px;
+  background-color: rgb(2, 96, 137);
+}
+
+.header-nav-bar{
+  height: inherit;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+#carouselExampleIndicators{
+  height: 300px;
+}
+
+
+.navbar{
+  border-radius: 1S0px;
+}
+
+.navbar li{
+  float:left;
+  list-style: none; 
+  margin: 13px 20px;
+}
+
+.navbar ul{
+  overflow: auto;
+}
+
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  color: black;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar li a:hover{
+  color:blueviolet;
+  text-decoration: underline;
+}
+
+.svg-1{
+  float: left;
+  width: 16px;
+  height: 16px;
+}
+
+.image-margin{
+  margin-left: 100px;
+}
+
+#carouselExampleIndicators{
+  height: 400px;
+  width: 1540px;
+}
+
+.yellow-container{
+  float: left;
+  background-color: yellow;
+  margin-top: 0px;
+  height: inherit;
+  margin-left: 900px;
+  width: 120px;
+}
+
+.yellow-container p{
+  text-align: center;
+  margin-top: 5px;
+}
+
+.grey-divider{
+  margin-top: 400px;
+  height:100px;
+  width: 100%;
+  background-color: gray;
+  color: gray;
+}
+.contain-box{
+  height:530px;
+  margin: auto;
+}
+
+.contain-box-inner{
+  float:left;
+  height:600px;
+  margin-top: 10px;
+}
+
+.box-padding-1{
+  padding-left: 100px;
+  width:700px;
+}
+.box-padding-2{
+  padding-right: 100px;
+  width:500px;
+}
+
+.yellow-container a{
+  text-decoration: none;
+  color: black;
+}
+.yellow-container a:hover{
+  font-weight: 900;
+}
+
+.container-2{
+  height:300px;
+}
+.admission-contain-box{
+  margin:inherit;
+  height:300px;
+  background: url("https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/1UWiwsChrQmuf8KfrGlp6J/9271b7dc6953a402fd355476d3b9e2c2/GettyImages-1170998900.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000&h=");filter:sepia(80%) hue-rotate(190deg) saturate(1200%) grayscale(50%) brightness(0.5) contrast(200%);
+  background-size: cover;
+  top:0px;
+  left:0px;
+}
+
+.admission-message{
+  position:relative;
+  top:-300px;
+}
+
+.admission-message-inner{
+  color:white;
+  margin-left:200px;
+  height:inherit;
+  width:500px;
+  margin-top:60px;
+}
+.admission-message-columns{
+  float:left;
+  display:flex;
+}
+.admission-message-inner-1{
+  margin-top:100px;
+  margin-left:200px;
+}
+
+.button-container-1{
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-container-1:hover{
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button-container-1:active{
+  transform: scale(0.95);
+}
+
+.container-3{
+  background-color:#e6e6e6;
+  height:600px;
+}
+.container-3-wrapbox{
+  height:700px;
+  width:900px;
+  padding:100px 100px;
+}
+.container-3-wrap-2{
+  background-color:white;
+  height:250px;
+  width:900px;
+  margin-left:150px;
+}
+.container-3-wrap-1{
+  height:150px;
+  width:900px;
+  margin-left:150px;
+}
+.container-3-wrap-2-inner{
+  width:870px;
+  height:250px;
+  margin-left:15px;
+  float: left;
+  display: flex;
+}
+.container-3-image img{
+  height:230px;
+  weight:200px;
+  margin-top:10px;
+}
+.container-3-message{
+  margin-left: 30px;
+  margin-top: 50px;
+}
+#notice-link{
+  text-decoration: none;
+  color:black;
+}
+.date-notice{
+  color:gray;
+  font: calibri;
+}
+.container-4{
+  height:400px;
+  background-color: #004a4d;
+  color:white;
+}
+.container-4-inner{
+  float: left;
+  display: flex;
+  padding: 100px 100px;
+}
+
+.container-4-b1{
+  margin-left: 100px;
+  height: 400;
+  width:200px;
+}
+.container-4-b2{
+  margin-left: 70px;
+  height: 400;
+  width:200px;
+}

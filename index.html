@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE = edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+  <div class="side-menu">
+    <div class="brand-name">
+        <h1>Admin Panel</h1>
+    </div>
+    <ul>
+        <li><a href="#"><span class="material-icons">space_dashboard</span>Dashboard</a></li>
+        <li><button class="dropdown-btn active"><span class="material-icons">insert_drive_file</span>Course<span class="material-icons" id="first">arrow_drop_down</span> </button></li>
+        <ul class="dropdown-container">
+            <li><a href="#">Add Course</a></li>
+            <li><a href="#">Manage Course</a></li>
+        </ul>
+        <li><a href="#"><span class="material-icons">person</span>Reg. Students</a> </li>
+        <li><a href="#"><span class="material-icons">group</span>Professors</a> </li>
+        <li><a href="#"><span class="material-icons">insert_drive_file</span>Admission Applications<span class="material-icons" id="second">arrow_drop_down</span></a> </li>
+        <li><a href="#"><span class="material-icons">search</span>Search Application</a> </li>
+        <li><a href="#"><span class="material-icons">download</span>Public Notice<span class="material-icons" id="third">arrow_drop_down</span></a></li>
+        <li><a href="#"><span class="material-icons">download</span>Enquiry<span class="material-icons" id="fourth">arrow_drop_down</span></a> </li>
+        <li><a href="#"><span class="material-icons">help</span>Help</a> </li>
+        <li><a href="#"><span class="material-icons">admin_panel_settings</span>Settings</a></li>
+    </ul>
+</div>
+<div class="container">
+  <div class="header">
+      <div class="nav">
+          <div class="search">
+              <input type="text" placeholder="search">
+              <button type="submit"><img src="search.png" alt=""></button>
+          </div>
+          <div class="user">
+              <img src="notifications.png" alt="">
+              <div class="img-case">
+                  <img src="user.png" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+
+ <script>
+   var dropdown = document.getElementsByClassName("dropdown-btn");
+   var i;
+
+   for (i = 0; i < dropdown.length; i++) {
+     dropdown[i].addEventListener("click", function() {
+       this.classList.toggle("active");
+       var dropdownContent = this.nextElementSibling;
+       if (dropdownContent.style.display === "block") {
+         dropdownContent.style.display = "none";
+       } else {
+         dropdownContent.style.display = "block";
+       }
+  });
+ }
+ </script>
+
+  <div class="content">
+    <div class="cards">
+        <div class="card">
+            <div class="box">
+                <p style=" font-size: 30px; line-height: 50px; color: darkorchid;">2194</p>
+                <p style="font-size: 20px; ">Students</p>
+                <br>
+                <hr class="one">
+            </div>
+            <div class="icon-case">
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <p style="font-size: 30px; line-height: 50px; color: darkorange;">53</p>
+                <p style="font-size: 20px">Teachers</p>
+                <br>
+                <hr class="two">
+            </div>
+            <div class="icon-case">
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <p style="font-size: 30px; line-height: 50px; color: darkgreen;">5</p>
+                <p style="font-size: 20px">Total Applications</p>
+                <br>
+                <hr class="three">
+            </div>
+            <div class="icon-case">
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="box">
+                <p style="font-size: 30px; line-height: 50px; color: darkorchid;">0</p>
+                <p style="font-size: 20px">Pending Application</p>
+                <br>
+                <hr class="four">
+            </div>
+            <div class="icon-case">
+                
+            </div>
+        </div>
+        <div class="card">
+          <div class="box">
+              <p style="font-size: 30px; line-height: 50px; color: darkorange;">3</p>
+              <p style="font-size: 20px">Accepted Applications</p>
+              <br>
+              <hr class="five">
+          </div>
+          <div class="icon-case">
+              
+          </div>
+      </div>
+      <div class="card">
+        <div class="box">
+            <p style=" font-size: 30px; line-height: 50px; color: darkgreen;">2</p>
+            <p style="font-size: 20px;">Rejected Applications</p>
+            <br>
+            <hr class="six">
+        </div>
+        <div class="icon-case">
+            
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

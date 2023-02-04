@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body  {
+    min-height: 100vh;
+}
+
+a{
+     text-decoration: none;
+}
+
+li{
+     list-style: none;
+}
+
+h1,
+h2 {
+    color:beige;
+}
+
+.side-menu{
+  position: fixed;
+  background-color: rgb(34, 45, 45);
+  width: 20vw;
+  min-height: 100vh;
+  display: flex;
+  z-index: 1;
+  overflow-x: hidden;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  padding-inline-end: 3mm;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  direction: ltr;
+  position: relative;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.side-menu .brand-name {
+  margin-top: 4px;
+  padding: 10px 20px;
+  height: 10vh;
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.side-menu li a{
+  position: relative;
+   font-size: 20px;
+   padding: 15px 20px;
+   color: beige;
+   display: flex;
+   align-items: center;
+   border-left: 3px solid transparent;
+}
+
+.side-menu li .dropdown-btn{
+  position: relative;
+  padding: 15px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  color: beige;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.side-menu li:hover a{
+  background: beige;
+  color: darkslategrey;
+}
+
+.side-menu li:hover .dropdown-btn{
+  background: beige;
+  color: darkslategrey;
+}
+
+.active {
+  background-color: darkslategray;
+  color: beige;
+}
+.dropdown-container {
+  display: none;
+  background-color: rgb(34, 45, 45);
+  padding-left: 8px;
+}
+
+#first{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  transition: transform 0.4s;
+}
+
+#second{
+  position: absolute;
+  top: 60%;
+  right: 0px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  transition: transform 0.4s;
+}
+
+#third{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  transition: transform 0.4s;
+}
+
+#fourth{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  transition: transform 0.4s;
+}
+
+#first:hover{
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+#second:hover{
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+#third:hover{
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+#fourth:hover{
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+.container {
+  position: absolute;
+  right: 0;
+  width: 80vw;
+  height: 100vh;
+  background: #f1f1f1;
+}
+.container .header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  height: 10vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.container .header .nav {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.container .header .nav .search {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+.container .header .nav .search input[type=text] {
+  border: none;
+  background: #f1f1f1;
+  padding: 10px;
+  width: 50%;
+}
+.container .header .nav .search button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .header .nav .search button img {
+  width: 30px;
+  height: 30px;
+}
+.container .header .nav .user {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container .header .nav .user img {
+  width: 40px;
+  height: 40px;
+}
+.container .header .nav .user .img-case {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.container .header .nav .user .img-case img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container .content {
+  position: relative;
+  margin-top: 10vh;
+  min-height: 90vh;
+  background: #f1f1f1;
+}
+.container .content .cards {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* box */
+.container .content .cards .card {
+  width: 350px;
+  height: 150px;
+  background: white;
+  margin: 15px 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container .content .cards .card .box{
+  padding: 15px 10px;
+}
+
+hr.one{
+  height: 8px;
+  width: 390%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(101, 4, 133), darkorchid);
+}
+
+hr.two{
+  height: 8px;
+  width: 390%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(255, 81, 0), darkorange);
+}
+
+hr.three{
+  height: 8px;
+  width: 200%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(9, 54, 9), darkgreen);
+}
+
+hr.four{
+  height: 8px;
+  width: 177%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(101, 4, 133), darkorchid);
+}
+
+hr.five{
+  height: 8px;
+  width: 162%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(255, 81, 0), darkorange);
+}
+
+hr.six{
+  height: 8px;
+  width: 163%;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to left, rgb(9, 54, 9), darkgreen);
+}
