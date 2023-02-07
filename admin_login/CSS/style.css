@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.admin_login{
+    height: 58px;
+    color:white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: aqua;
+    min-height: calc(100vh - 58px );
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+
+.panel{
+    height: 300px;
+    width:300px;
+    /* align-content: center;
+    justify-content: center;
+   align-items: center; */
+   background-color: aliceblue;
+   border: 1px solid black;
+   border-radius: 4px;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   flex-shrink: 0;
+   margin: 100px 0 10px;
+   padding: 10px 0px;
+   vertical-align: baseline;
+   position: relative;
+}
+
+.head{
+    margin-top: 12px;
+    margin-bottom: 35px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.username{
+    margin-bottom: 23px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.password{
+    margin-bottom: 23px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_box{
+    width:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height:35px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.btn{
+    padding: 5px 10px;
+    border:2px solid white;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    background-color: #2874f0;
+    font-size: 12px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 120px;
+}
+
+.forget_psw{
+    margin-top: 23px;
+    font-size: 12px;
+    color: rgb(21, 81, 212);
+    display: flex;
+    align-content: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* align-items: flex-start; */
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.back_home{
+    width:334;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgb(21, 81, 212);
+    margin-left: 20px;
+    cursor: pointer;
+}

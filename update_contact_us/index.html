@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Update Contact Us</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+   </head>
+   <body>
+    <div w3-include-html="basic.html"></div>
+      <nav class="sidebar">
+         <div class="text">
+            Admin Panel
+         </div>
+         <ul>
+            <li class="active"><a href="http://127.0.0.1:5500/dashboard/index.html"><span class="material-icons">space_dashboard</span>Dashboard</a></li>
+            <li>
+               <a href="#" class="feat-btn"><span class="material-icons">insert_drive_file</span>Course
+               <span class="fas fa-caret-down first"></span>
+               </a>
+               <ul class="feat-show">
+                  <li><a href="#">Add Course</a></li>
+                  <li><a href="#">Manage Course</a></li>
+               </ul>
+            </li>
+            <li><a href="http://127.0.0.1:5500/user_detail/index.html"><span class="material-icons">person</span>Reg. Students</a></li>
+            <li><a href="#"><span class="material-icons">group</span>Professors</a></li>
+            <li>
+               <a href="#" class="serv-btn"><span class="material-icons">insert_drive_file</span>Admission Applications
+               <span class="fas fa-caret-down second"></span>
+               </a>
+               <ul class="serv-show">
+                  <li><a href="http://127.0.0.1:5500/pending_application/index.html">Pending</a></li>
+                  <li><a href="http://127.0.0.1:5500/selected_application/index.html">Selected</a></li>
+                  <li><a href="http://127.0.0.1:5500/rejected_application/index.html">Rejected</a></li>
+                  <li><a href="http://127.0.0.1:5500/view_all_application/index.html">All Applications</a></li>
+               </ul>
+            </li>
+            <li><a href="http://127.0.0.1:5500/search_application/index.html"><span class="material-icons">search</span>Search Application</a></li>
+            <li>
+                <a href="#" class="notice-btn"><span class="material-icons">download</span>Public Notice
+                <span class="fas fa-caret-down third"></span>
+                </a>
+                <ul class="notice-show">
+                   <li><a href="http://127.0.0.1:5500/add_notice/index.html">Add Notice</a></li>
+                   <li><a href="http://127.0.0.1:5500/manage_notice/index.html">Manage Notice</a></li>
+                </ul>
+             </li>
+             <li>
+                <a href="#" class="enquiry-btn"><span class="material-icons">download</span>Enquiry
+                <span class="fas fa-caret-down fourth"></span>
+                </a>
+                <ul class="enquiry-show">
+                   <li><a href="http://127.0.0.1:5500/unread_enquiry/index.html">Unread Enquiry</a></li>
+                   <li><a href="http://127.0.0.1:5500/read_enquiry/index.html">Read Enquiry</a></li>
+                </ul>
+             </li>
+            <li><a href="#"><span class="material-icons">help</span>Help</a></li>
+            <li><a href="#"><span class="material-icons">admin_panel_settings</span>Settings</a></li>
+         </ul>
+      </nav>
+      <!-- <div class="content">
+         <div class="header">
+            Sidebar Menu with sub-menu
+         </div>
+         <p>
+            HTML CSS & Javascript (Full Tutorial)
+         </p>
+      </div> -->
+      <script>
+         $('.btn').click(function(){
+           $(this).toggleClass("click");
+           $('.sidebar').toggleClass("show");
+         });
+           $('.feat-btn').click(function(){
+             $('nav ul .feat-show').toggleClass("show");
+             $('nav ul .first').toggleClass("rotate");
+           });
+           $('.serv-btn').click(function(){
+             $('nav ul .serv-show').toggleClass("show1");
+             $('nav ul .second').toggleClass("rotate");
+           });
+           $('.notice-btn').click(function(){
+             $('nav ul .notice-show').toggleClass("show2");
+             $('nav ul .third').toggleClass("rotate");
+           });
+           $('.enquiry-btn').click(function(){
+             $('nav ul .enquiry-show').toggleClass("show3");
+             $('nav ul .fourth').toggleClass("rotate");
+           });
+           $('nav ul li').click(function(){
+             $(this).addClass("active").siblings().removeClass("active");
+           });
+      </script>
+
+  <div class="container">
+    <div class="header">
+      <div class="nav">
+        <div class="search">
+          <input type="text" placeholder="search">
+          <button type="submit"><img src="search.png" alt=""></button>
+        </div>
+        <div class="user">
+          <img src="notifications.png" alt="">
+          <div class="img-case">
+            <img src="user.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content">
+      <div class="container2">
+
+        <div class="header2">
+          <div class="update_contact_us">
+            <p>Update Contact Us</p>
+          </div>
+          <div class="dashboard">
+            Dashboard
+          </div>
+          <div class="dash">
+            -
+          </div>
+          <div class="update_contact_uss">
+            Update Contact Us
+          </div>
+        </div>
+      </div>
+
+      <div class="container3">
+        <div class="contact_us">
+          Contact Us
+        </div>
+
+        <div class="row1">
+          <div class="title">
+            Title
+            <input type="text">
+          </div>
+          <div class="email">
+            Email Address
+            <input type="email">
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="description">
+            Page Description
+            <input type="text">
+          </div>
+        <div class="mobile_no">
+          Mobile Number
+          <input type="number">
+        </div>
+      </div>
+
+        <div class="update">
+          <button class="update_bar">Update</button>
+        </div>
+      </div>
+
+    </div>
+
+
+</body>
+
+</html>
