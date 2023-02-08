@@ -28,6 +28,13 @@ nav:hover{
   width: 280px;
   transition: 1s;
 }
+
+nav #hoverdisplay{
+  display: none;
+}
+nav:hover #hoverdisplay{
+  display: block;
+}
 .logo{
   text-align: center;
   display: flex;
@@ -200,4 +207,8 @@ table thead tr{
   background: #4AD489;
   color: #fff;
   transition: 0.5rem;
+}
+
+.main-top-student{
+  background-color: #f3f3f3;
 }

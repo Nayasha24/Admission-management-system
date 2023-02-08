@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 var validator = require('validator');
 
 
-const studentSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     username:{
         type: String,
         required: true,
@@ -33,7 +33,7 @@ const studentSchema = new mongoose.Schema({
         }
     },
     contact:{
-        type: Number,
+        type: String,
         required: true,
         validate(val){
             if(!validator.isMobilePhone(val)){
@@ -43,6 +43,6 @@ const studentSchema = new mongoose.Schema({
     }
 })
 
-const Student = new mongoose.model("Student",studentSchema);
+const Admin = new mongoose.model("Admin",adminSchema);
 
-module.exports = Student;
+module.exports = Admin;
