@@ -4,7 +4,7 @@
    <head>
       <meta charset="utf-8">
       <title>Admin Panel</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="./css/adminappallstyle.css">
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -130,6 +130,7 @@
             All Application
           </div>
         </div>
+        {{#if details}}
         <div class="table">
           <table>
             <tr>
@@ -144,11 +145,26 @@
                  Action
               </th>
             </tr>
+
+            {{#each details}}
+              <tr>
+              <td>1</td>
+              <td>{{program}}</td>
+              <td>{{firstname}}</td>
+              <td>{{lastname}}</td>
+              <td>{{contact}}</td>
+              <td>{{email}}</td>
+              <td>pending</td>
+              <th class="action">
+                 Action
+              </th>
+            </tr>
+            {{/each}}
           </table>
+        {{/if}}
         </div>
       </div>
     </div>
-
 
 </body>
 

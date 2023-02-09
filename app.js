@@ -1,6 +1,15 @@
 const express = require("express");
 const app = express();
 
+const parser = require('handlebars-error-parser').parser;
+var html = '{{#foo}}{{/bar}}';
+var parsed;
+try {
+    hbs.precompile(html);
+} catch (e) {
+    parsed = parser(e, html);
+}
+
 const path = require("path");
 
 const Student = require("./studentregdata");
@@ -144,6 +153,16 @@ app.post("/adminlogin", async (req,res)=>{
     } catch(error) {
         res.status(400).send("invalid......")
     }
+})
+
+app.get("/viewapplicationall",(req,res)=>{
+    StudentApplication.find({},(err,allDetails)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.render("viewapplicationall",{details:allDetails})
+        }
+    })
 })
 
 app.listen(port, ()=>{
