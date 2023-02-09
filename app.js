@@ -14,7 +14,8 @@ const path = require("path");
 
 const Student = require("./studentregdata");
 const Admin = require("./adminregdata");
-const StudentApplication = require("./studentapplication")
+const StudentApplication = require("./studentapplication");
+const { Console } = require("console");
 require("./conn.js");
 
 const port = process.env.PORT || 8000;
@@ -102,7 +103,13 @@ app.post("/regform", async (req,res)=>{
         })
 
         const appliedStudents = await StudentForm.save();
-        res.status(201).render("studashboard")
+        StudentApplication.findOne([{firstname:firstname},{lastname:lastname},{email:email}],(err,allData)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.status(201).render("regform",{data:allData})
+            }    
+    })
         
     } catch (error) {
         res.status(400).send(error);
@@ -163,6 +170,30 @@ app.get("/viewapplicationall",(req,res)=>{
             res.render("viewapplicationall",{details:allDetails})
         }
     })
+})
+
+app.get("/viewapplicationall/:id", async(req,res)=>{
+    try {
+        var id = req.params['id'];
+        console.log(id);
+        const resultStudent = await StudentApplication.findById(id);
+        res.status(201).render("viewstudentapp",{
+            firstname:resultStudent.firstname,
+            lastname:resultStudent.firstname,
+            email:resultStudent.email,
+            mobile:resultStudent.contact,
+            dob:resultStudent.dob,
+            gender:resultStudent.gender,
+            state:resultStudent.state,
+            city:resultStudent.city,
+            pin:resultStudent.pin,
+            program:resultStudent.program,
+            specialization:resultStudent.specialization
+        });
+    }catch (error) {
+        console.log(error);
+    }
+    
 })
 
 app.listen(port, ()=>{
