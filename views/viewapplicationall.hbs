@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Admin Panel</title>
+      <title>All Applications</title>
       <link rel="stylesheet" href="./css/adminappallstyle.css">
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,7 +16,7 @@
             Admin Panel
          </div>
          <ul>
-            <li class="active"><a href="http://127.0.0.1:5500/dashboard/index.html"><span class="material-icons">space_dashboard</span>Dashboard</a></li>
+            <li><a href="http://127.0.0.1:5500/dashboard/index.html"><span class="material-icons">space_dashboard</span>Dashboard</a></li>
             <li>
                <a href="#" class="feat-btn"><span class="material-icons">insert_drive_file</span>Course
                <span class="fas fa-caret-down first"></span>
@@ -29,7 +28,7 @@
             </li>
             <li><a href="http://127.0.0.1:5500/user_detail/index.html"><span class="material-icons">person</span>Reg. Students</a></li>
             <li><a href="#"><span class="material-icons">group</span>Professors</a></li>
-            <li>
+            <li class="active">
                <a href="#" class="serv-btn"><span class="material-icons">insert_drive_file</span>Admission Applications
                <span class="fas fa-caret-down second"></span>
                </a>
@@ -59,7 +58,15 @@
                    <li><a href="http://127.0.0.1:5500/read_enquiry/index.html">Read Enquiry</a></li>
                 </ul>
              </li>
-            <li><a href="#"><span class="material-icons">help</span>Help</a></li>
+            <li>
+                <a href="#" class="pages-btn"><span class="material-icons">download</span>Pages
+                <span class="fas fa-caret-down fifth"></span>
+                </a>
+                <ul class="pages-show">
+                   <li><a href="#">About Us</a></li>
+                   <li><a href="#">Contact Us</a></li>
+                </ul>
+             </li>
             <li><a href="#"><span class="material-icons">admin_panel_settings</span>Settings</a></li>
          </ul>
       </nav>
@@ -91,6 +98,10 @@
            $('.enquiry-btn').click(function(){
              $('nav ul .enquiry-show').toggleClass("show3");
              $('nav ul .fourth').toggleClass("rotate");
+           });
+           $('.pages-btn').click(function(){
+             $('nav ul .pages-show').toggleClass("show4");
+             $('nav ul .fifth').toggleClass("rotate");
            });
            $('nav ul li').click(function(){
              $(this).addClass("active").siblings().removeClass("active");
