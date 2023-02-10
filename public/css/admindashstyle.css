@@ -16,6 +16,7 @@
   left: 0px;
   background: #1b1b1b;
   transition: left 0.4s ease;
+  max-height: 2000px;
 }
 .sidebar.show{
   left: 0px;
@@ -28,6 +29,7 @@
   text-align: center;
   background: #1e1e1e;
   letter-spacing: 1px;
+  display: flex;
 }
 nav ul{
   background: #1b1b1b;

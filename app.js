@@ -14,6 +14,7 @@ const path = require("path");
 
 const Student = require("./studentregdata");
 const Admin = require("./adminregdata");
+const Contact = require("./contactdata");
 const StudentApplication = require("./studentapplication");
 const { Console } = require("console");
 require("./conn.js");
@@ -103,13 +104,13 @@ app.post("/regform", async (req,res)=>{
         })
 
         const appliedStudents = await StudentForm.save();
-        StudentApplication.findOne([{firstname:firstname},{lastname:lastname},{email:email}],(err,allData)=>{
-            if(err){
-                console.log(err);
-            }else{
-                res.status(201).render("regform",{data:allData})
-            }    
-    })
+    //     StudentApplication.findOne([{firstname:firstname},{lastname:lastname},{email:email}],(err,allData)=>{
+    //         if(err){
+    //             console.log(err);
+    //         }else{
+    //             res.status(201).render("regform",{data:allData})
+    //         }    
+    // })
         
     } catch (error) {
         res.status(400).send(error);
@@ -194,6 +195,49 @@ app.get("/viewapplicationall/:id", async(req,res)=>{
         console.log(error);
     }
     
+})
+
+app.get("/searchapp",(req,res)=>{
+    res.render("searchapp");
+})
+
+app.get("/searchapplication",async(req,res)=>{
+    const query=req.body.idsearch;
+    const studentappquery = await StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.render("searchapp",{details:allDetails});
+        }
+    }).clone();
+});
+
+app.post("/Contact",async (req,res)=>{
+    try {
+        
+        const Contactform = new Contact({
+            firstname:req.body.first_name,
+            lastname:req.body.last_name,
+            email:req.body.email,
+            contact:req.body.Phone,
+            message:req.body.message
+        })  
+    }catch (error) {
+        res.status(400).send(error);
+    }
+
+    const Contacted = await Contactform.save();
+    res.status(201).render("contact");
+})
+
+app.get("/enquiry",async(req,res)=>{
+    StudentApplication.find({},(err,allData)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.status(201).render("enquiry",{data:allData})
+        } 
+    });
 })
 
 app.listen(port, ()=>{

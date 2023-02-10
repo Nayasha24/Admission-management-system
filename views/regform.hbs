@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Student Admission Form</h1>
-        <form action="/regform" method="POST">
+        <form action="/regform" method="POST" name="regform">
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -118,15 +118,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Registered" onclick="return SaveStudentDetails()">
+                    <input type="submit" value="Registered" onclick="SaveStudentDetails(); return false">
                 </div>  
             </div>
         </form>
-        {{#if data}}
-            <script language="javascript">
+        <script>
+            function SaveStudentDetails(){
+                document.writeln(`<table><tr><th>First Name</th><td>${document.regform.firstname.value}</td></tr><th>First Name</th><td>${document.regform.name.value}</td><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></table>`)
+            }
+        </script>
+            {{!-- <script language="javascript">
                 document.getElementsByClassName("container").style.display="none";
             </script>
-            {{#each data}}
                 <table style='width:100%' id="tableapplication">
                     <tr>
                         <th>First Name:</th>
@@ -177,8 +180,7 @@
                             <td>{{specialization}}</td>
                     </tr>
                 </table>
-            {{/each}}
-        {{/if}}
-        <script type="text/javascript" lang="javascript" src="form.js"></script>
+        {{/if}} --}}
+        {{!-- <script type="text/javascript" lang="javascript" src="form.js"></script> --}}
         </body>
 </html>
