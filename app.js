@@ -104,13 +104,15 @@ app.post("/regform", async (req,res)=>{
         })
 
         const appliedStudents = await StudentForm.save();
-    //     StudentApplication.findOne([{firstname:firstname},{lastname:lastname},{email:email}],(err,allData)=>{
-    //         if(err){
-    //             console.log(err);
-    //         }else{
-    //             res.status(201).render("regform",{data:allData})
-    //         }    
-    // })
+        
+        StudentApplication.findOne([{firstname:firstname},{lastname:lastname},{email:email}],(err,allData)=>{
+            if(err){
+                console.log(err);
+            }else{
+                
+                res.status(201).render("regform",{data:allData})
+            }    
+    })
         
     } catch (error) {
         res.status(400).send(error);
@@ -212,32 +214,42 @@ app.get("/searchapplication",async(req,res)=>{
     }).clone();
 });
 
-app.post("/Contact",async (req,res)=>{
+app.get("/contact",(req,res)=>{
+    res.render("contact");
+})
+
+app.post("/contact",async (req,res)=>{
     try {
         
-        const Contactform = new Contact({
+        const contactform = new Contact({
             firstname:req.body.first_name,
             lastname:req.body.last_name,
             email:req.body.email,
             contact:req.body.Phone,
             message:req.body.message
         })  
+
+        const Contacted = await contactform.save();
+        res.status(201).render("contact");
     }catch (error) {
         res.status(400).send(error);
     }
-
-    const Contacted = await Contactform.save();
-    res.status(201).render("contact");
 })
 
 app.get("/enquiry",async(req,res)=>{
-    StudentApplication.find({},(err,allData)=>{
+    Contact.find({},(err,allDetails)=>{
         if(err){
             console.log(err);
         }else{
-            res.status(201).render("enquiry",{data:allData})
-        } 
-    });
+            const date_obj=new Date();
+                const date=("0"+date_obj.getDate()).slice(-2);
+                let month=("0"+(date_obj.getMonth()+1)).slice(-2);
+                let year=date_obj.getFullYear();
+                let curdate= date + "/" + month + "/" + year;
+                console.log(date + "/" + month + "/" + year);
+            res.render("enquiry",{details:allDetails,date:curdate})
+        }
+    })
 })
 
 app.listen(port, ()=>{

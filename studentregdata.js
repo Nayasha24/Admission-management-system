@@ -33,7 +33,7 @@ const studentSchema = new mongoose.Schema({
         }
     },
     contact:{
-        type: Number,
+        type: String,
         required: true,
         validate(val){
             if(!validator.isMobilePhone(val)){
