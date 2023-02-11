@@ -1,3 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body{
+  height: 100vh;
+  padding: 10px;
+}
+
 h1{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 25pt;         
@@ -35,3 +43,93 @@ h1{
   th,td{
     height: 40px;
   }
+.container{
+  border: 1.5px #333 solid;
+  margin-top: 10px;
+  max-width: 200px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.select-menu{
+  width: 200px;
+  margin: 25px auto;
+}
+.select-menu .select-btn{
+  border: 1.5px #333 solid;
+  display: flex;
+  height: 4px;
+  background: #fff;
+  padding: 20px;
+  font-size: 19px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.select-btn i{
+  font-size: 25px;
+  transition: 0.3s;
+}
+.select-menu.active .select-btn i{
+  transform: rotate(-180deg);
+}
+.select-menu .options{
+  border: 1.5px #333 solid;
+  position: relative;
+  padding: 0px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  display: none;
+}
+.select-menu.active .options{
+  display: block;
+}
+.options .option{
+  display: flex;
+  height: 50px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+.options .option:hover{
+  background: #F2F2F2;
+}
+.option i{
+  font-size: 25px;
+  margin-right: 12px;
+}
+.option .option-text{
+  font-size: 18px;
+  color: #333;
+}
+form .button{
+  height: 45px;
+  margin: 35px 0
+}
+form .button input{
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgb(52, 153, 52);
+}
+form .button input:hover{
+ /* transform: scale(0.99); */
+ background: rgb(52, 153, 52);
+ }
+
