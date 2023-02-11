@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>College Admission Form</title>
         <link rel="stylesheet" href="./css/s1.css">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         
     </head>
     <body>
@@ -59,6 +60,46 @@
                             <td>{{specialization}}</td>
                     </tr>
                 </table>
+                <form>
+                  <div class="container">
+                      <div class="select-menu">
+                          <div class="select-btn">
+                              <span class="sBtn-text">Select one</span>
+                              <i class="bx bx-chevron-down"></i>
+                          </div>
+                  
+                          <ul class="options">
+                              <li class="option">
+                                  <span class="option-text">Accept</span>
+                              </li>
+                              <li class="option">
+                                  <span class="option-text">Reject</span>
+                              </li>
+                          </ul>
+                      </div>
+                          <div class="button">
+                            <input type="submit" value="Register">
+                          </div>
+                      </div>
+                   </form>
+                   <script>
+                const optionMenu = document.querySelector(".select-menu"),
+               selectBtn = optionMenu.querySelector(".select-btn"),
+               options = optionMenu.querySelectorAll(".option"),
+               sBtn_text = optionMenu.querySelector(".sBtn-text");
+        
+        selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));       
+        
+        options.forEach(option =>{
+            option.addEventListener("click", ()=>{
+                let selectedOption = option.querySelector(".option-text").innerText;
+                sBtn_text.innerText = selectedOption;
+        
+                optionMenu.classList.remove("active");
+            });
+        });
+        
+            </script>
 
         </body>
 </html>
