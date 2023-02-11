@@ -75,6 +75,9 @@ nav ul .notice-show.show2{
 nav ul .enquiry-show.show3{
     display: block;
 }
+nav ul .pages-show.show4{
+  display: block;
+}
 nav ul ul li{
   line-height: 42px;
   border-top: none;
@@ -245,19 +248,21 @@ nav ul li a span.rotate{
   margin-top: 8.5px;
 }
 
-.content .container2 .table {
-  margin-left: 30px;
-  padding-left: 23px;
-  margin-top: 5px;
-  height: 50px;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  text-align: left;
+table{
+  padding-top: 20px;
+  padding-left: 20px;
+  border-spacing: 0 15px;
 }
-
-.content .container2 .table th{
-  padding-left: 60px;
-  padding-top: 10px;
+table th{
+  text-align: center;
+  width: 500px;
+  height: 50px;
+}
+table, th, td {
+  height: 50px;
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 /* .content .container2 .table .action{
