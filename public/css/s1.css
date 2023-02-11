@@ -6,11 +6,11 @@ h1{
     color:#1b1b1b;
   }
 
-  hr{
+/*   hr{
     width: 50%;
     align-self: center;
     border: 1px solid;
-  }
+  } */
   table{
     margin-top: 3%;
     margin-left: auto;
