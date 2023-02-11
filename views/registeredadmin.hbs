@@ -67,7 +67,15 @@
                    <li><a href="http://127.0.0.1:5500/read_enquiry/index.html">Read Enquiry</a></li>
                 </ul>
              </li>
-            <li><a href="#"><span class="material-icons">help</span>Help</a></li>
+             <li>
+               <a href="#" class="pages-btn"><span class="material-icons">download</span>Pages
+               <span class="fas fa-caret-down fifth"></span>
+               </a>
+               <ul class="pages-show">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact Us</a></li>
+               </ul>
+            </li>
             <li><a href="#"><span class="material-icons">admin_panel_settings</span>Settings</a></li>
          </ul>
       </nav>
@@ -91,6 +99,10 @@
            $('.enquiry-btn').click(function(){
              $('nav ul .enquiry-show').toggleClass("show3");
              $('nav ul .fourth').toggleClass("rotate");
+           });
+           $('.pages-btn').click(function(){
+             $('nav ul .pages-show').toggleClass("show4");
+             $('nav ul .fifth').toggleClass("rotate");
            });
            $('nav ul li').click(function(){
              $(this).addClass("active").siblings().removeClass("active");
