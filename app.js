@@ -203,15 +203,16 @@ app.get("/searchapp",(req,res)=>{
     res.render("searchapp");
 })
 
-app.get("/searchapplication",async(req,res)=>{
-    const query=req.body.idsearch;
-    const studentappquery = await StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
+app.get("/searchapplication",(req,res)=>{
+    const query = req.body.searchname;
+    StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
         if(err){
             console.log(err);
         }else{
             res.render("searchapp",{details:allDetails});
         }
     }).clone();
+    console.log(query);
 });
 
 app.get("/contact",(req,res)=>{
@@ -242,12 +243,27 @@ app.get("/enquiry",async(req,res)=>{
             console.log(err);
         }else{
             const date_obj=new Date();
-                const date=("0"+date_obj.getDate()).slice(-2);
-                let month=("0"+(date_obj.getMonth()+1)).slice(-2);
-                let year=date_obj.getFullYear();
-                let curdate= date + "/" + month + "/" + year;
-                console.log(date + "/" + month + "/" + year);
-            res.render("enquiry",{details:allDetails,date:curdate})
+            res.render("enquiry",{details:allDetails});
+        }
+    })
+})
+
+app.get("/registereduser",(req,res)=>{
+    Student.find({},(err,allDetails)=>{
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("registereduser",{details:allDetails});
+        }
+    })
+})
+
+app.get("/registeredadmin",(req,res)=>{
+    Admin.find({},(err,allDetails)=>{
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("registeredadmin",{details:allDetails});
         }
     })
 })

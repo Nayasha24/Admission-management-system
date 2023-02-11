@@ -4,11 +4,20 @@
    <head>
       <meta charset="utf-8">
       <title>User Detail</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="./css/registereduserstyle.css">
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
+      <style type="text/css">
+        body{
+          counter-reset:Serial;
+        }
+        tr td:first-child:before{
+          counter-increment: Serial;
+          content: counter(Serial);
+        }
+      </style>
    </head>
    <body>
     <div w3-include-html="basic.html"></div>
@@ -132,18 +141,30 @@
           </div>
         </div>
         <div class="table">
+          {{#if details}}
           <table>
             <tr>
               <th>S.No</th>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>User Name</th>
               <th>Mobile Number</th>
               <th>Email</th>
               <th class="action">
                  Action
               </th>
             </tr>
+
+            {{#each details}}
+              <tr>
+              <td></td>
+              <td>{{username}}</td>
+              <td>{{contact}}</td>
+              <td>{{email}}</td>
+              <td>/</td>
+              
+            </tr>
+            {{/each}}
           </table>
+          {{/if}}
         </div>
       </div>
     </div>
