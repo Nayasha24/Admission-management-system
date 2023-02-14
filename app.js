@@ -205,6 +205,7 @@ app.get("/searchapp",(req,res)=>{
 
 app.get("/searchapplication",(req,res)=>{
     const query = req.body.searchname;
+    console.log(req.body.searchname);
     StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
         if(err){
             console.log(err);
@@ -212,7 +213,7 @@ app.get("/searchapplication",(req,res)=>{
             res.render("searchapp",{details:allDetails});
         }
     }).clone();
-    console.log(query);
+    
 });
 
 app.get("/contact",(req,res)=>{

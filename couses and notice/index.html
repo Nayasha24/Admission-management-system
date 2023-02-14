@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/course_details.js"></script>
+     <!--Title-->
+<title>Simple Student Record</title>
+<!-- CSS File-->
+</head>
+<body>
+<div class="employpage"> 
+  <div class="formdata">
+    
+  <form onsubmit="event.preventDefault();" autocomplete="off">
+      
+
+      <label>Course Name</label>
+      <input type="text" class="empname" value=""  placeholder="Course Name" >
+
+      <label>Faculty Name</label>
+      <input type="text" class="designation" value=""  placeholder="Faculty name">
+
+      <!-- <label>Mobile</label>
+      <input type="text" class="mobile" value=""  placeholder="Employ Mobile">
+
+      <label>Salary</label>
+      <input type="text" class="empsalary" value="" placeholder="Employ Salary"> -->
+
+      <div style="width:100%">
+      <input type="submit"  value="Submit"  class="button" onclick="employdata()">
+      
+      </div>
+    </form>
+
+  </div>
+
+  <div class="display_table">
+              <table class="list" id="employeeList">
+                    <thead>
+                         <tr>
+                      <th>sr.no</th>         
+                      <th>Course Name</th>
+                      <th>Faculty Name</th>
+                      <!-- <th>Mobile</th>
+                      <th>Salary</th>                       -->
+                      <th>Actions</th>
+                  </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+  </div>
+</div>
+
+  
+</body>

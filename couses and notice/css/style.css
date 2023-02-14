@@ -1,0 +1,77 @@
+.employpage{
+    display: flex;
+    width: 1000px;
+    flex-wrap: wrap;
+    margin: auto;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 16px;
+    border: solid 2px #f1f1f1;
+    color: #585858;
+}
+.employpage .formdata{
+  width:40%;
+  padding:15px;
+}
+.employpage .display_table {
+  padding:15px;
+  width:52%;
+}
+.employpage .display_table table{
+  border:solid 1px #ccc;
+}
+.employpage .display_table td, 
+.employpage .display_table th{
+  border-left:solid 1px #ccc;
+  border-bottom:solid 1px #ccc;
+  padding:10px 5px;
+  text-align:left;
+  font-size:13px;
+}
+.employpage .display_table td:first-child, 
+.employpage .display_table th:first-child{
+  border-left:none;
+}
+
+.employpage .display_table tr{
+  border-bottom:solid 1px #ccc;
+}
+.employpage .display_table tr:last-child td{
+  border-bottom:none;
+}
+
+.formdata form{
+  display:flex;
+  flex-wrap:wrap;
+  background:#f1f1f1;
+  padding:15px;
+}
+.formdata form label{
+  width:100px;
+}
+.formdata form input, .formdata label{
+  margin:10px 0;
+  padding:5px;
+} 
+.formdata form input{
+  width:200px;
+  padding:7px;
+  
+}
+.formdata th{
+  background:#f1f1f1; 
+  font-size:14px; 
+  font-weight:bold;
+  text-align:left;
+  
+}
+.formdata .button{
+  background:#1E90FF;
+  padding:5px 10px;
+  font-size:20px;
+  margin:25px auto;
+  display:table;
+  color:#fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
