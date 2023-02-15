@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 var validator = require('validator');
 
-const studentApplicationSchema = new mongoose.Schema({
+const selectedStudentSchema = new mongoose.Schema({
     firstname:{
         type: String,
         required: true,
@@ -64,11 +64,13 @@ const studentApplicationSchema = new mongoose.Schema({
         required: true
     },
     status:{
-        type:String,
-        default:"Pending"
+        type:String
+    },
+    fees:{
+        type:Number
     }
 })
 
-const StudentApplication = new mongoose.model("StudentApplication",studentApplicationSchema);
+const SelectedStudents = new mongoose.model("SelectedStudent",selectedStudentSchema);
 
-module.exports = StudentApplication;
+module.exports = SelectedStudents;

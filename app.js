@@ -16,6 +16,7 @@ const Student = require("./studentregdata");
 const Admin = require("./adminregdata");
 const Contact = require("./contactdata");
 const StudentApplication = require("./studentapplication");
+const SelectedStudents = require("./selectedstudents")
 const { Console } = require("console");
 require("./conn.js");
 
@@ -70,6 +71,25 @@ app.post("/login", async (req,res)=>{
         
         const studentmail = await Student.findOne({username:user});
         if(studentmail.password===password){
+            if (SelectedStudents.findOne({email:studentmail.email})) {
+                res.status(201).render("studashboard",{
+                    user:user,
+                    Admissionmessage:"Your application is Selected"
+                });
+                return;
+            } else if(StudentApplication.findOne({email:studentmail.email})){
+                res.status(201).render("studashboard",{
+                    user:user,
+                    Admissionmessage:"Your application is pending"
+                });
+                return;
+            } else{
+                res.status(201).render("studashboard",{
+                    user:user,
+                    Admissionmessage:"Please fill the admission Form"
+                });
+                return;
+            }
             res.status(201).render("studashboard",{
                 user:user
             });
@@ -110,7 +130,7 @@ app.post("/regform", async (req,res)=>{
                 console.log(err);
             }else{
                 
-                res.status(201).render("regform",{data:allData})
+                res.status(201).render("/studashboard",{data:allData})
             }    
     })
         
@@ -153,10 +173,22 @@ app.post("/adminlogin", async (req,res)=>{
         const password = req.body.password;
         
         const adminmail = await Admin.findOne({username:user});
+        console.log(Student.countDocuments());
+        const num=await Student.countDocuments();
+        const num1=await Admin.countDocuments();
+        const num2=await StudentApplication.countDocuments();
+        const num3=await SelectedStudents.countDocuments();
+
+
         if(adminmail.password===password){
             res.status(201).render("admindashboard",{
-                user:user
+                user:user,
+                userscount:num,
+                admincount:num1,
+                appcount:num2,
+                selectedcount:num3
             });
+            return;
         }else{
             res.send("password are not matching");
         }
@@ -178,14 +210,14 @@ app.get("/viewapplicationall",(req,res)=>{
 app.get("/viewapplicationall/:id", async(req,res)=>{
     try {
         var id = req.params['id'];
-        console.log(id);
         const resultStudent = await StudentApplication.findById(id);
         res.status(201).render("viewstudentapp",{
             firstname:resultStudent.firstname,
-            lastname:resultStudent.firstname,
+            lastname:resultStudent.lastname,
             email:resultStudent.email,
             mobile:resultStudent.contact,
             dob:resultStudent.dob,
+            address:resultStudent.address,
             gender:resultStudent.gender,
             state:resultStudent.state,
             city:resultStudent.city,
@@ -269,6 +301,33 @@ app.get("/registeredadmin",(req,res)=>{
     })
 })
 
+app.post("/viewstudentapp",async(req,res)=>{
+    try {
+        
+        const selectedStudentdata = new SelectedStudents({
+            firstname:StudentApplication.firstname,
+            lastname:StudentApplication.lastname,
+            email:StudentApplication.email,
+            contact:StudentApplication.mobile,
+            gender:StudentApplication.gender,
+            dob:StudentApplication.dob,
+            address:StudentApplication.address,
+            city:StudentApplication.city,
+            pin:StudentApplication.pin,
+            state:StudentApplication.state,
+            program:StudentApplication.qualification,
+            specialization:StudentApplication.specialization,
+            status:"Selected",
+            fees:req.body.fees
+        })
+        const selectedStudents = await selectedStudentdata.save();
+        res.status(201).render("viewapplicationall",{status:"Selected"});
+    }catch(err){
+        res.status(404).send(err);
+    }
+})
+
 app.listen(port, ()=>{
     console.log("Connection Successful....");
 })
+    
