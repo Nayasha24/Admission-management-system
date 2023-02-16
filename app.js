@@ -16,7 +16,7 @@ const Student = require("./studentregdata");
 const Admin = require("./adminregdata");
 const Contact = require("./contactdata");
 const StudentApplication = require("./studentapplication");
-const SelectedStudents = require("./selectedstudents")
+const SelectedStudents = require("./selectedstudents");
 const { Console } = require("console");
 require("./conn.js");
 
@@ -70,14 +70,16 @@ app.post("/login", async (req,res)=>{
         const password = req.body.password;
         
         const studentmail = await Student.findOne({username:user});
+        const ss= await SelectedStudents.findOne({email:studentmail.email});
+        const sa= await StudentApplication.findOne({email:studentmail.email});
         if(studentmail.password===password){
-            if (SelectedStudents.findOne({email:studentmail.email})) {
+            if (ss) {
                 res.status(201).render("studashboard",{
                     user:user,
                     Admissionmessage:"Your application is Selected"
                 });
                 return;
-            } else if(StudentApplication.findOne({email:studentmail.email})){
+            } else if(sa){
                 res.status(201).render("studashboard",{
                     user:user,
                     Admissionmessage:"Your application is pending"
@@ -186,7 +188,8 @@ app.post("/adminlogin", async (req,res)=>{
                 userscount:num,
                 admincount:num1,
                 appcount:num2,
-                selectedcount:num3
+                selectedcount:num3,
+                pencount:num2-num3
             });
             return;
         }else{
@@ -225,6 +228,33 @@ app.get("/viewapplicationall/:id", async(req,res)=>{
             program:resultStudent.program,
             specialization:resultStudent.specialization
         });
+        app.post("/viewstudentapp",async(req,res)=>{
+            try {
+                const selectedStudentdata = new SelectedStudents({
+                    firstname:resultStudent.firstname,
+                    lastname:resultStudent.lastname,
+                    email:resultStudent.email,
+                    contact:resultStudent.contact,
+                    gender:resultStudent.gender,
+                    dob:resultStudent.dob,
+                    address:resultStudent.address,
+                    city:resultStudent.city,
+                    pin:resultStudent.pin,
+                    state:resultStudent.state,
+                    program:resultStudent.program,
+                    specialization:resultStudent.specialization,
+                    status:"Selected"
+                })
+
+                const selectedStudents = await selectedStudentdata.save();
+                res.status(201).render("viewapplicationall");
+                const studoc = StudentApplication.findOneAndUpdate({email:resultStudent.email},{status:"Selected"},{
+                    new:true
+                });
+            }catch(err){
+                res.status(404).send(err);
+            }
+        })
     }catch (error) {
         console.log(error);
     }
@@ -235,16 +265,20 @@ app.get("/searchapp",(req,res)=>{
     res.render("searchapp");
 })
 
-app.get("/searchapplication",(req,res)=>{
-    const query = req.body.searchname;
-    console.log(query);
-    StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
-        if(err){
-            console.log(err);
-        }else{
-            res.render("searchapp",{details:allDetails});
-        }
-    }).clone();
+app.get("/searchapplication", async(req,res)=>{
+    try {
+        const searchname = req.body.searchname;
+        console.log(searchname);
+        const ddoc = await StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, searchname]}},{email:searchname},{contact:searchname}]}).clone();
+        res.render("searchapp",{
+            program:ddoc.program
+        });
+        
+    
+    } catch (error) {
+        console.log(error);
+    }
+    
     
 });
 
@@ -301,42 +335,54 @@ app.get("/registeredadmin",(req,res)=>{
     })
 })
 
-app.post("/viewstudentapp",async(req,res)=>{
-    try {
-        
-        const selectedStudentdata = new SelectedStudents({
-            firstname:StudentApplication.firstname,
-            lastname:StudentApplication.lastname,
-            email:StudentApplication.email,
-            contact:StudentApplication.mobile,
-            gender:StudentApplication.gender,
-            dob:StudentApplication.dob,
-            address:StudentApplication.address,
-            city:StudentApplication.city,
-            pin:StudentApplication.pin,
-            state:StudentApplication.state,
-            program:StudentApplication.qualification,
-            specialization:StudentApplication.specialization,
-            status:"Selected",
-            fees:req.body.fees
-        })
-        const selectedStudents = await selectedStudentdata.save();
-        res.status(201).render("viewapplicationall",{status:"Selected"});
-    }catch(err){
-        res.status(404).send(err);
-    }
-})
+// app.post("/viewstudentapp",async(req,res)=>{
+//     try {
+//         const Studata=StudentApplication.find()
+//         const selectedStudentdata = new SelectedStudents({
+//             firstname:StudentApplication.firstname,
+//             lastname:StudentApplication.lastname,
+//             email:StudentApplication.email,
+//             contact:StudentApplication.mobile,
+//             gender:StudentApplication.gender,
+//             dob:StudentApplication.dob,
+//             address:StudentApplication.address,
+//             city:StudentApplication.city,
+//             pin:StudentApplication.pin,
+//             state:StudentApplication.state,
+//             program:StudentApplication.qualification,
+//             specialization:StudentApplication.specialization,
+//             status:"Selected",
+//             fees:req.body.fees
+//         })
+//         const selectedStudents = await selectedStudentdata.save();
+//         res.status(201).render("viewapplicationall",{status:"Selected"});
+//     }catch(err){
+//         res.status(404).send(err);
+//     }
+// })
 
 app.get("/managecourse",(req,res)=>{
     res.render("managecourse");
 })
 
-app.get("/viewcourse",(req,res)=>{
-    res.render("viewcourse");
-})
+
 
 app.get("/addnotice",(req,res)=>{
     res.render("addnotice");
+})
+
+app.get("/managenotice",(req,res)=>{
+    res.render("managenotice");
+})
+
+app.get("/selectedstudents",(req,res)=>{
+    SelectedStudents.find({},(err,allDetails)=>{
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("selectedstudents",{details:allDetails});
+        }
+    })
 })
 
 app.get("/managenotice",(req,res)=>{
