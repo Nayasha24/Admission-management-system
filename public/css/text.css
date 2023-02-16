@@ -259,8 +259,103 @@ h1 {
   height: 400;
   width:200px;
 }
+.address{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  color: #000000;
+}
+
+.address img{
+  height: 25px;
+  width:50px;
+  padding-right: 20px;
+}
+
+.phone{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  color: #000000;
+}
+
+.phone img{
+  height: 25px;
+  width:50px;
+  padding-right: 20px;
+}
+
+.email{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  color: #000000;
+}
+
+.email img{
+  height: 25px;
+  width:50px;
+  padding-right: 20px;
+}
+.icon{
+  margin-top:40px ;
+  display: flex;
+  flex-direction: row;
+}
+.icon img{
+  height: 25px;
+  width:50px;
+  padding-right: 20px;
+}
+
+.mail{
+  margin-top:40px ;
+  display: flex;
+  flex-direction: row;
+}
+
+.mail input{
+  height: 40px;
+  background-color: #000000;
+}
+
+.mail ::placeholder{
+  padding-left: 7px;
+}
+
+.mail img{
+  height: 39px;
+  width:65px;
+  padding-right: 20px;
+}
+
+ .container-4-b3 .text{
+  margin-top: 15px;
+  color: rgb(174, 236, 39);
+}
+
 .container-4-b2{
   margin-left: 70px;
-  height: 400;
+  /* height: 400; */
   width:200px;
 }
+
+
+.nav_bar li{
+  list-style: none; 
+ 
+}
+
+/* .nav_bar ul{
+  margin-top: 30px;
+} */
+
+.nav_bar li a{
+  margin-top: 100px;
+ padding: auto;
+  text-decoration: none;
+  color: black;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
