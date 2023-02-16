@@ -172,7 +172,7 @@ app.post("/adminlogin", async (req,res)=>{
         const user = req.body.username;
         const password = req.body.password;
         
-        const adminmail = await Admin.findOne({username:user});
+        const adminmail = await Admin.findOne({username:user})
         console.log(Student.countDocuments());
         const num=await Student.countDocuments();
         const num1=await Admin.countDocuments();
@@ -237,7 +237,7 @@ app.get("/searchapp",(req,res)=>{
 
 app.get("/searchapplication",(req,res)=>{
     const query = req.body.searchname;
-    console.log(req.body.searchname);
+    console.log(query);
     StudentApplication.find({$or:[{$expr:{$eq:[{$concat:["$firstname",'',"$lastname"]}, query]}},{email:query},{contact:query}]},(err,allDetails)=>{
         if(err){
             console.log(err);
@@ -325,6 +325,22 @@ app.post("/viewstudentapp",async(req,res)=>{
     }catch(err){
         res.status(404).send(err);
     }
+})
+
+app.get("/managecourse",(req,res)=>{
+    res.render("managecourse");
+})
+
+app.get("/viewcourse",(req,res)=>{
+    res.render("viewcourse");
+})
+
+app.get("/addnotice",(req,res)=>{
+    res.render("addnotice");
+})
+
+app.get("/managenotice",(req,res)=>{
+    res.render("managenotice");
 })
 
 app.listen(port, ()=>{
